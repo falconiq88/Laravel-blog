@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', 'App\Http\Controllers\Posts@all')->middleware(['auth']);
+Route::get('/about', function(){return view('about');})->middleware(['auth']);
 Route::get('/posts/{post:slug}', 'App\Http\Controllers\Posts@find');
 
 Route::get('/dashboard', function () {
