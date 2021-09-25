@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'App\Http\Controllers\Posts@all')->middleware(['auth']);
 Route::get('/about', function(){return view('about');})->middleware(['auth']);
-Route::get('/posts/{post:slug}', 'App\Http\Controllers\Posts@find');
+Route::get('/posts/{post:slug}', 'App\Http\Controllers\Posts@show');
+Route::post('/posts/{post:slug}/comments', 'App\Http\Controllers\Posts@storeComment');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,4 +28,13 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('create_post',function(){
+
+   return view('posts.create_post',['categories' => Category::all()]);
+
+})->middleware(['auth']);
+
+
+
+Route::Post('create_post', 'App\Http\Controllers\Posts@storePost')->middleware(['auth']);;

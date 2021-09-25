@@ -5,7 +5,7 @@
 
 
 <figure class=" d-flex flex-row flex-wrap">
-  <img src="/uploads/{{($post->image)? $post->image :'1605012389-image3-1.jpg'}}" class="figure img-fluid rounded  col-xl-4  row-sm-1 row-md-1 row-lg-1" alt="...">
+  <img src="/storage/{{($post->image)? $post->image :'1605012389-image3-1.jpg'}}" class="figure img-fluid rounded  col-xl-4  row-sm-1 row-md-1 row-lg-1" alt="...">
 <div class="  col-xl-6  " style="padding:3%;">
 
                     <div class="flex-2 flex flex-col justify-between" style="margin:5%;">
@@ -28,7 +28,7 @@
                         <p class="post-meta">
                             Posted by
                             <a>{{$post->author->username}}</a>
-                            on <a>{{$post->created_at}}</a>
+                            on <a>{{$post->created_at->format('F j , Y ,g:i a')}}</a>
 
                         </p>
 </div>

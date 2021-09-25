@@ -1,8 +1,8 @@
 <!-- base -->
-@extends('layout')
+@extends('layouts.layout')
 @section('contents')
     <!-- Page Header-->
-        <header class="masthead" style="background-image: url('/uploads/1605012389-image3-1.jpg')">
+        <header class="masthead" style="background-image: url('/storage/1605012389-image3-1.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -58,8 +58,11 @@
 <div class="d-flex justify-content-center" style="max-width:100%;">
 <div class="pagination pagination-xl-lg">{{$posts->links()}}</div>
 </div>
+
 <!--create post -->
-<div class="container row d-flex justify-content-center">
+<div class="container row  justify-content-center">
 <p><a class="btn btn-dark btn-lg " href="/create_post" role="button">Create post</a></p>
 </div>
+
+
 @endsection
